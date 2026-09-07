@@ -1589,9 +1589,59 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
+	
+; new moves with -1 accuracy will always hit. Affect moves: roar, whirlwind, struggle
+	ld a, [wPlayerMoveStruct + MOVE_ACC]
+	ld b, a
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .check_raw_acc
+	ld a, [wEnemyMoveStruct + MOVE_ACC]
+	ld b, a
+.check_raw_acc
+	ld a, b
+	cp -1
+	ret z	
 
 	call .StatModifiers
+	
+; Wide Lens: +10% accuracy for moves used by the holder
+	ld hl, wPlayerMoveStruct + MOVE_ACC
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_move_acc_ptr
+	ld hl, wEnemyMoveStruct + MOVE_ACC
+.got_move_acc_ptr
+	push hl
+	call GetUserItem
+	ld a, [hl]
+	cp WIDE_LENS
+	pop hl
+	jr nz, .skip_wide_lens
 
+	push hl
+	xor a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	ld a, [hl]
+	ldh [hMultiplicand + 2], a
+	ld a, 11
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, 10
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+	ldh a, [hQuotient + 2]
+	and a
+	ldh a, [hQuotient + 3]
+	jr z, .wide_lens_ok
+	ld a, $ff
+.wide_lens_ok
+	pop hl
+	ld [hl], a
+
+.skip_wide_lens
 	ld a, [wPlayerMoveStruct + MOVE_ACC]
 	ld b, a
 	ldh a, [hBattleTurn]
@@ -1788,7 +1838,7 @@ BattleCommand_CheckHit:
 .StatModifiers:
 	ldh a, [hBattleTurn]
 	and a
-
+	
 	; load the user's accuracy into b and the opponent's evasion into c.
 	ld hl, wPlayerMoveStruct + MOVE_ACC
 	ld a, [wPlayerAccLevel]

@@ -125,7 +125,7 @@
 	const MIRACLE_SEED ; 75
 	const THICK_CLUB   ; 76
 	const FOCUS_BAND   ; 77
-	const ICY_ROCK      ; 78
+	const ICY_ROCK     ; 78
 	const ENERGYPOWDER ; 79
 	const ENERGY_ROOT  ; 7a
 	const HEAL_POWDER  ; 7b
@@ -158,7 +158,7 @@
 	const MYSTERYBERRY ; 96
 	const DRAGON_SCALE ; 97
 	const BERSERK_GENE ; 98
-	const ITEM_99      ; 99
+	const WIDE_LENS    ; 99
 	const ITEM_9A      ; 9a
 	const ITEM_9B      ; 9b
 	const SACRED_ASH   ; 9c

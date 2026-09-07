@@ -5,7 +5,7 @@ move: MACRO
 	db \2 ; effect
 	db \3 ; power
 	db \4 ; type
-	db \5 percent ; accuracy
+	db \5 percent ; accuracy set -1 to always hit same effect as EFFECT_ALWAYS_HIT
 	db \6 ; pp
 	db \7 percent ; effect chance
 ENDM
@@ -30,7 +30,7 @@ Moves:
 	move CUT,          EFFECT_NORMAL_HIT,         55, BUG,          100,  30,   0
 	move GUST,         EFFECT_GUST,               40, FLYING,       100, 35,   0
 	move WING_ATTACK,  EFFECT_PRIORITY_HIT,        50, FLYING,       100, 35,   0
-	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,       100, 20,   0
+	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,        -1, 20,   0
 	move FLY,          EFFECT_FLY,                70, FLYING,       100, 15,   0
 	move BIND,         EFFECT_TRAP_STACK,          0, NORMAL,        95, 30,   0
 	move SLAM,         EFFECT_NORMAL_HIT,         80, NORMAL,       100, 20,   0
@@ -58,7 +58,7 @@ Moves:
 	move LEER,         EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,         100, 25,  30
 	move GROWL,        EFFECT_ATTACK_DOWN,         0, NORMAL,       100, 40,   0
-	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,       100, 20,   0
+	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,        -1, 20,   0
 	move SING,         EFFECT_SLEEP,               0, NORMAL,        55, 15,   0
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,        70, 20,   0
 	move SONICBOOM,    EFFECT_STATIC_DAMAGE,      20, NORMAL,       100, 20,   0
@@ -267,5 +267,5 @@ Moves:
 	move IRON_DEFENSE, EFFECT_DEFENSE_UP_2,        0, STEEL,        100, 15,   0
 	move NASTY_PLOT,   EFFECT_SP_ATK_UP_2,         0, DARK,     	100, 20,   0
 	move HAIL,	   EFFECT_HAIL,	               0, ICE,          100, 10,   0
-	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
+	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,        -1,  1,   0
 	assert_table_length NUM_ATTACKS

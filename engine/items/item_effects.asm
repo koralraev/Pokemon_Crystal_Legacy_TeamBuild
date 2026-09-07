@@ -166,7 +166,7 @@ ItemEffects:
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw EvoStoneEffect      ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
+	dw NoEffect            ; WIDE_LENS
 	dw NoEffect            ; ITEM_9A
 	dw NoEffect            ; ITEM_9B
 	dw SacredAshEffect     ; SACRED_ASH

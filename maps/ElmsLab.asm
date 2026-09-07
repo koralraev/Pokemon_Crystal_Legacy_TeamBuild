@@ -1358,17 +1358,11 @@ BookshelfToggleEvent:
 	writetext YesToSetNoToClearText
 	yesorno
 	iftrue .ToggleOn
-	clearevent EVENT_SHOW_MUNCHLAX
-	giveitem NUTRI_ROOT
-	giveitem HARD_STONE
-	giveitem BERRYMIX
-	setevent EVENT_GOT_NUTRI_ROOT
-	setevent EVENT_GOT_BERRYMIX
 	
 	closetext
 	end
 .ToggleOn:
-	setevent EVENT_SHOW_MUNCHLAX
+	giveitem WIDE_LENS
 	closetext
 	end
 	
