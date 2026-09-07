@@ -3504,7 +3504,6 @@ SkarmoryEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, LEER
 	db 1, PECK
-	db 1, ROOST
 	db 13, SAND_ATTACK
 	db 17, SPIKES
 	db 19, SWIFT

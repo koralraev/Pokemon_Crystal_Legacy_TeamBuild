@@ -1,6 +1,7 @@
 # Pokemon Crystal Legacy: Features, Additions and Some Enhancements
 
 This started as a fork of Crystal Legacy (https://github.com/cRz-Shadows/Pokemon_Crystal_Legacy) but grew to be more than a few simple changes and additions. 
+
 Though this is build on TheSmithPlays' Pokemon Crystal Legacy it is NOT compatible with an existing save.
 
 

@@ -1497,6 +1497,7 @@
 	const EVENT_FLYSERVICE_UNLOCKED
 	const EVENT_FLYSERVICE_FLYGUY_HIDE
 	const EVENT_ENABLE_ITEMFINDER_INBATTLE	;toggle to show enemy hold item in battle
+;	const EVENT_MAHOGANY_CANDY_SCAM ; clear to show / set to hide -> remember to increment 'const_next' from 2048 to 2049 when implementing
 ; trade sequence events
 	const EVENT_GOT_SPECIAL_DISH
 	const EVENT_GOT_GOLDEN_ACORN
@@ -1509,6 +1510,7 @@
 	const EVENT_START_MUNCHLAX_QUEST
 	const EVENT_ENDED_MUNCHLAX_QUEST
 	const EVENT_GOT_MUNCHLAX
+	const EVENT_SHOW_MUNCHLAX
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800

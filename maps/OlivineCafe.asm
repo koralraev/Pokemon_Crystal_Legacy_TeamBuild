@@ -72,6 +72,7 @@ OlivineCafeFishingGuruScript: ; the chef
 	waitbutton
 	verbosegiveitem SPECIAL_DISH
 	setevent EVENT_GOT_SPECIAL_DISH
+	clearevent EVENT_SHOW_MUNCHLAX
 	promptbutton
 	closetext
 	end

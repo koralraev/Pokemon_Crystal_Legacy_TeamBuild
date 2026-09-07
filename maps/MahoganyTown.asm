@@ -5,6 +5,7 @@ MAHOGANYTOWN_RAGECANDYBAR_PRICE EQU 300
 	const MAHOGANYTOWN_GRAMPS
 	const MAHOGANYTOWN_FISHER
 	const MAHOGANYTOWN_LASS
+	const MAHOGANYTOWN_PRYCE
 
 MahoganyTown_MapScripts:
 	def_scene_scripts
@@ -99,6 +100,14 @@ MahoganyTownGrampsScript:
 
 .ClearedRocketHideout:
 	writetext MahoganyTownGrampsText_ClearedRocketHideout
+	waitbutton
+	closetext
+	end
+
+MahoganyTownPryceScript:
+	faceplayer
+	opentext
+	writetext MahoganyTownPryceText
 	waitbutton
 	closetext
 	end
@@ -221,6 +230,11 @@ MahoganyTownLassText:
 	para "stuff that nobody"
 	line "else has."
 	done
+	
+MahoganyTownPryceText:
+	text "How'd you get"
+	line "here?"
+	done
 
 MahoganyTownSignText:
 	text "MAHOGANY TOWN"
@@ -266,6 +280,8 @@ MahoganyTown_MapEvents:
 
 	def_object_events
 	object_event 19,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownPokefanMScript, EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
+;	object_event 20,  8, SPRITE_PRYCE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownPryceScript, EVENT_MAHOGANY_CANDY_SCAM
+;	object_event 19,  8, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownPokefanMScript, EVENT_MAHOGANY_CANDY_SCAM
 	object_event  6,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownGrampsScript, -1
 	object_event  6, 14, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MahoganyTownFisherScript, EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
 	object_event 12,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownLassScript, EVENT_MAHOGANY_MART_OWNERS

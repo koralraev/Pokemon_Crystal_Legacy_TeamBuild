@@ -128,6 +128,7 @@ SCENE_ALWAYS   EQU -1
 	const_def
 	const SCENE_MAHOGANYMART1F_NOTHING               ; 0
 	const SCENE_MAHOGANYMART1F_LANCE_UNCOVERS_STAIRS ; 1
+	const SCENE_NIGHT_CHANCE ; 2/3?
 
 ; wTeamRocketBaseB2FSceneID
 	const_def 1

@@ -325,9 +325,9 @@ RadioTowerRocketsScript:
 	setevent EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
 	clearevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	clearevent EVENT_USED_THE_CARD_KEY_IN_THE_RADIO_TOWER
-	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
+	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST	; hides the ragecandy seller
 	specialphonecall SPECIALCALL_WEIRDBROADCAST
-	setmapscene MAHOGANY_TOWN, SCENE_FINISHED
+	setmapscene MAHOGANY_TOWN, SCENE_FINISHED	;stops the ragecandy scene
 	end
 
 BugContestResultsWarpScript:
@@ -649,6 +649,8 @@ InitializeEventsScript:
 	setevent EVENT_HIDDEN_DAMP_ROCK 	; union cave lapras pool
 	setevent EVENT_FLYSERVICE_HIDE_ABRA 	; hides abras from PokeCenters
 	setevent EVENT_FLYSERVICE_UNLOCKED	; hides FlyService PC
+	setevent EVENT_SHOW_MUNCHLAX		; hides munchlax until quest complete
+;	setevent EVENT_MAHOGANY_CANDY_SCAM	; hides black-belt and pryce in mahogany
 	endcallback
 
 AskNumber1MScript:

@@ -1,6 +1,8 @@
 	object_const_def
 	const MAHOGANYREDGYARADOSSPEECHHOUSE_BLACK_BELT
+	const MAHOGANYREDGYARADOSSPEECHHOUSE_MUNCHLAX
 	const MAHOGANYREDGYARADOSSPEECHHOUSE_TEACHER
+	
 
 MahoganyRedGyaradosSpeechHouse_MapScripts:
 	def_scene_scripts
@@ -54,8 +56,8 @@ MahoganyRedGyaradosSpeechHouseBlackBeltScript:
 	writetext MonWasMunchlaxText
 	waitbutton
 	takeitem SPECIAL_DISH
-	verbosegiveitem HARD_STONE
 	verbosegiveitem NUGGET
+	verbosegiveitem HARD_STONE
 .MonWantToGo:
 	writetext MonWantToGoText
 	yesorno
@@ -65,7 +67,9 @@ MahoganyRedGyaradosSpeechHouseBlackBeltScript:
 	writetext ReceivedMunchlaxText
 	promptbutton
 	givepoke MUNCHLAX, 20, LEFTOVERS
-	setevent EVENT_GOT_MUNCHLAX	
+	setevent EVENT_GOT_MUNCHLAX
+	setevent EVENT_SHOW_MUNCHLAX ;hidens munchlax
+	disappear MAHOGANYREDGYARADOSSPEECHHOUSE_MUNCHLAX
 	closetext
 	end
 .KeepHere:
@@ -78,6 +82,17 @@ MahoganyRedGyaradosSpeechHouseBlackBeltScript:
 	waitbutton
 	closetext
 	end
+	
+MunchlaxScript:
+	opentext
+	writetext MunchlaxText
+	waitbutton
+	closetext
+	end
+	
+MunchlaxText:
+	text "Munch?"
+	done
 	
 	
 BeenHearingNoiseBehindHouseText:
@@ -156,7 +171,7 @@ MonWasMunchlaxText:
 	cont "like my cooking,"
 	cont "or the leftovers"
 	cont "from it at least."
-	cont "So I fear that"
+	cont "So I'm afraid that"
 	cont "special dish you"
 	cont "worked so hard for"
 	cont "wasn't necessary"
@@ -273,4 +288,5 @@ MahoganyRedGyaradosSpeechHouse_MapEvents:
 
 	def_object_events
 	object_event  2,  3, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyRedGyaradosSpeechHouseBlackBeltScript, -1
+	object_event  3,  3, SPRITE_MUNCHLAX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MunchlaxScript, EVENT_SHOW_MUNCHLAX
 	object_event  6,  5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MahoganyRedGyaradosSpeechHouseTeacherScript, -1
